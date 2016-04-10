@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+  <head>
+<link rel="stylesheet" type="text/css" href="styling.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script> 
+<script>
+function deselect(e) {
+  $('.pop').slideFadeToggle(function() {
+    e.removeClass('selected');
+  });    
+}
+
+$(function() {
+  $('#contact').on('click', function() {
+    if($(this).hasClass('selected')) {
+      deselect($(this));               
+    } else {
+      $(this).addClass('selected');
+      $('.pop').slideFadeToggle();
+    }
+    return false;
+  });
+
+  $('.close').on('click', function() {
+    deselect($('#contact'));
+    return false;
+  });
+});
+
+$.fn.slideFadeToggle = function(easing, callback) {
+  return this.animate({ opacity: 'toggle', height: 'toggle' }, 'fast', easing, callback);
+};
+</script>
+  </head>
+  <body>
+    <div id="map"></div>
+    <script>
+      function initMap() {
+        var map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat: -34.397, lng: 150.644},
+          zoom: 6
+        });
+        var infoWindow = new google.maps.InfoWindow({map: map});
+
+        // Try HTML5 geolocation.
+        if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(function(position) {
+            var pos = {
+              lat: position.coords.latitude,
+              lng: position.coords.longitude
+            };
+
+            infoWindow.setPosition(pos);
+            infoWindow.setContent('Location found.');
+            map.setCenter(pos);
+          }, function() {
+            handleLocationError(true, infoWindow, map.getCenter());
+          });
+        } else {
+          // Browser doesn't support Geolocation
+          handleLocationError(false, infoWindow, map.getCenter());
+        }
+      }
+
+      function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+        infoWindow.setPosition(pos);
+        infoWindow.setContent(browserHasGeolocation ?
+                              'Error: The Geolocation service failed.' :
+                              'Error: Your browser doesn\'t support geolocation.');
+      }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD7u2aanZ2Y0kdiNJcCLamelWGq3pfKu14&callback=initMap"
+    async defer></script>
+
+<div class="messagepop pop">
+  <form method="post" id="request_info" action="/messages">
+    <p><input type="submit" value="Request Info" name="requestinfo" id="requestinfo"/> or <a class="close" href="/">Cancel</a></p>
+  </form>
+</div>
+
+<div class="messagepop pop1">
+  <form method="post" id="new_message" action="/messages">
+<p><label for="name">Your Name</label><input type="text" size="30" name="name" id="name" /></p>    
+<p><label for="email">Your email</label><input type="text" size="30" name="email" id="email" /></p>
+    <p><label for="message">What type of project would you like to work on?</label><textarea rows="6" name="message" id="message" cols="35"></textarea></p>
+<p><label for="tenure">Tenure of project?</label><input type="text" size="40" name="tenure" id="tenure" /></p>    </p>
+    <p><input type="submit" value="Send Message" name="commit" id="message_submit"/> or <a class="close" href="/">Cancel</a></p>
+  </form>
+</div>
+
+<a href="/contact" id="contact">Request Info</a>
+  </body>
+</html>
