@@ -77,6 +77,7 @@ echo '</script>';
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Vacant2Vital</title>
 <link rel="stylesheet" type="text/css" href="css/view.css" media="all">
+<script src='https://www.google.com/recaptcha/api.js'></script>
 <script type="text/javascript" src="js/view.js"></script>
 
 </head>
@@ -152,7 +153,7 @@ echo '</script>';
 			
 					<li class="buttons">
 			    <input type="hidden" name="form_id" value="1126356" />
-			    
+			    <div class="g-recaptcha" data-sitekey=6LcTVR4TAAAAAAnMQk-rYsLHeJm18Qk_K1tkU-ZZ></div>
 				<input id="saveForm" class="button_text" type="submit" name="submit" value="Submit" />
 		</li>
 			</ul>
