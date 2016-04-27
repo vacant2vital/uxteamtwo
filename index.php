@@ -66,7 +66,9 @@ $postcard = $lob->postcards()->create(array(
 
 print_r($postcard);
 
-
+echo '<script language="javascript">';
+echo 'alert("Your postcard has been sent to the owner.")';
+echo '</script>';
 }
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
