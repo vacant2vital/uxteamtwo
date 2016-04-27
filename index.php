@@ -64,10 +64,11 @@ $postcard = $lob->postcards()->create(array(
   'data[contract]'  => $contract
 ));
 
-print_r($postcard);
+
 
 echo '<script language="javascript">';
 echo 'alert("Your postcard has been sent to the owner.")';
+
 echo '</script>';
 }
 ?>
