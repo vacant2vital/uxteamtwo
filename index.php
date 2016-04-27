@@ -162,5 +162,6 @@ echo '</script>';
 		</div>
 	</div>
 	<img id="bottom" src="images/bottom.png" alt="">
+	<a href="info.html">Go to Info page</a>
 	</body>
 </html>
