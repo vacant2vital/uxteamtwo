@@ -15,6 +15,8 @@ if (isset($_POST["submit"])) {
 	fwrite($file, "SEEKER INFO\n".$name."\t".$phone."\t".$email."\r\n");
 	fwrite($file, "EXTRA INFO\n".$explain."\t".$experience."\t".$contract."\r\n");
 	fclose($file);
+
+	include 'testLob.php';
 }
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -74,7 +76,7 @@ if (isset($_POST["submit"])) {
 			<textarea id="element_4" name="element_4" class="element textarea medium"></textarea> 
 		</div> 
 		</li>		<li id="li_5" >
-		<label class="description" for="element_5">Do you have expeirence
+		<label class="description" for="element_5">Do you have experience
  </label>
 		<div>
 		<select class="element select medium" id="element_5" name="element_5"> 
