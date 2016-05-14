@@ -22,7 +22,7 @@ $file = file_get_contents('front.html');
 $back = file_get_contents('back.html');
 
 
-$lob = new \Lob\Lob('test_e17cf73fd6ce6ee1c68e9e85bae7adf0b25');
+$lob = new \Lob\Lob('test_7321e9f963708178389fa7ab59dd1e86a62');
 
 $to_address = $lob->addresses()->create(array(
   'name'          => $owner,
